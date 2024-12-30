@@ -1,22 +1,22 @@
 ---
-import { getCollection, render } from "astro:content";
 import BlogPost from "../../layouts/BlogPost.astro";
+import { getAllPosts, getPost } from "../../lib/client";
 
 export async function getStaticPaths() {
-	let posts = await getCollection("posts");
-
-	return posts.map((post) => {
-		return {
-			params: { slug: post.data.slug },
-			props: { post },
-		};
-	});
+  const data = await getAllPosts();
+  const allPosts = data.publication.posts.edges;
+  return allPosts.map((post) => {
+    return {
+      params: { slug: post.node.slug },
+    };
+  });
 }
+const { slug } = Astro.params;
+const post = await getPost(slug);
 
-const { post } = Astro.props;
-const { Content } = await render(post);
+console.log(slug, post);
 ---
 
-<BlogPost content={post.data}>
-	<Content />
+<BlogPost content={post}>
+  {post.content && <Fragment set:html={post.content.html} />}
 </BlogPost>

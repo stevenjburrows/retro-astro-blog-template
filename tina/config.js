@@ -96,6 +96,10 @@ export default defineConfig({
 								value: "musings",
 								label: "Musings",
 							},
+							{
+								value: "dummy",
+								label: "Dummy",
+							},
 						],
 					},
 					{

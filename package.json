@@ -17,7 +17,7 @@
 		"prettier-plugin-astro": "^0.14.1"
 	},
 	"dependencies": {
-		"@tinacms/cli": "^1.7.0",
-		"tinacms": "^2.5.2"
+		"graphql": "^16.10.0",
+		"graphql-request": "^7.1.2"
 	}
 }
