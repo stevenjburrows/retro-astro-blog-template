@@ -2,13 +2,12 @@
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import Post from "../components/Post.astro";
 import ColorScript from "../components/ColorScript.astro";
+import SeriesComponent from "../components/Series.astro";
+import { getAllSeries } from "../lib/client";
 
-import { getAllPostsReduced } from "../lib/client";
-
-const data = await getAllPostsReduced(20);
-const allPosts = data.publication.posts.edges;
+const data = await getAllSeries();
+const allSeries = data.publication.seriesList.edges;
 
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 ---
@@ -22,14 +21,11 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
       <content>
         <ul class="posts-list">
           {
-            allPosts.map((postData) => (
-              <Post
-                description={postData.node.brief}
-                date={postData.node.publishedAt}
-                slug={postData.node.slug}
-                title={postData.node.title}
-                tags={postData.node.tags}
-                readTime={postData.node.readTimeInMinutes}
+            allSeries.map((seriesData) => (
+              <SeriesComponent
+                description={seriesData.node.description.text}
+                slug={seriesData.node.slug}
+                name={seriesData.node.name}
               />
             ))
           }

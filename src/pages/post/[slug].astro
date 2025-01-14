@@ -13,8 +13,6 @@ export async function getStaticPaths() {
 }
 const { slug } = Astro.params;
 const post = await getPost(slug);
-
-console.log(slug, post);
 ---
 
 <BlogPost content={post}>

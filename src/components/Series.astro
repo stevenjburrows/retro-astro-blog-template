@@ -1,0 +1,10 @@
+---
+const { slug, name, description } = Astro.props;
+---
+
+<li class="post">
+  <a href={`/series/${slug}/`} class="title">{name}</a>
+
+  <br />
+  {description && <p class="excerpt">{description}</p>}
+</li>

@@ -1,37 +1,27 @@
 ---
-import { getCollection } from "astro:content";
 import BaseHead from "../../components/BaseHead.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import Post from "../../components/Post.astro";
 import ColorScript from "../../components/ColorScript.astro";
 
-import { SITE_TITLE, SITE_DESCRIPTION } from "../../config";
-import { getLatestTags, getPostsByTag } from "../../lib/client";
+import { getAllSeries, getSeries } from "../../lib/client";
 
 export async function getStaticPaths() {
-  const tagsObject = await getLatestTags();
-  const allTags = tagsObject.publication.posts.edges.map((edge) => {
-    return edge.node.tags.map((tag) => tag.slug);
-  });
-
-  const tags = [...new Set(allTags.flat(4))];
-
-  return tags.map((t) => {
+  const data = await getAllSeries();
+  const allSeries = data.publication.seriesList.edges;
+  return allSeries.map((series) => {
     return {
-      params: { tag: t },
+      params: { slug: series.node.slug },
     };
   });
 }
+const { slug } = Astro.params;
 
-const { tag } = Astro.params;
-console.log("currentTag", tag);
-let after = "0";
+const data = await getSeries(slug);
+const allPosts = data.publication.series.posts.edges;
 
-const data = await getPostsByTag(tag, 20);
-const allPosts = data.publication.posts.edges;
-
-console.log(allPosts);
+import { SITE_TITLE, SITE_DESCRIPTION } from "../../config";
 ---
 
 <!doctype html>
@@ -41,8 +31,7 @@ console.log(allPosts);
     <Header />
     <main>
       <content>
-        <h3>Posts tagged with "{tag}"</h3>
-        <ul class="tags-list">
+        <ul class="posts-list">
           {
             allPosts.map((postData) => (
               <Post
@@ -57,8 +46,8 @@ console.log(allPosts);
           }
         </ul>
       </content>
-      <Footer />
     </main>
+    <Footer />
     <ColorScript />
   </body>
 </html>

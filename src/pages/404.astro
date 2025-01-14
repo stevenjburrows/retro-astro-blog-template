@@ -13,16 +13,38 @@ const tags = getTags(posts);
 ---
 
 <!doctype html>
-<html lang="en-us">
-	<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	<body>
-		<Header title={SITE_TITLE} />
-		<main>
-			404: Page not found
+<html lang="en-gb">
+  <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  <body>
+    <Header title={SITE_TITLE} />
+    <main>
+      <pre>
+      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~<br />
+      ~     _  _    ___  _  _      ~<br />
+      ~    | || |  / _ \| || |     ~<br />
+      ~    | || |_| | | | || |_    ~<br />
+      ~    |__   _| |_| |__   _|   ~<br />
+      ~       |_|  \___/   |_|     ~<br />
+      ~                            ~<br />
+      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~<br />
+     </pre>
+      <p>Page not found</p>
 
-			<Tags tags={tags} all />
-		</main>
-		<Footer />
-		<ColorScript />
-	</body>
+      <Tags all />
+    </main>
+    <Footer />
+    <ColorScript />
+  </body>
 </html>
+<style>
+  pre {
+    line-height: 0.5em;
+    font-size: 3em;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+  }
+
+  p {
+    text-align: center;
+  }
+</style>

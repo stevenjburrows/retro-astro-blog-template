@@ -1,9 +1,9 @@
 ---
 import Post from "../components/Post.astro";
 
-import { getAllPostsTmp } from "../lib/client";
+import { getAllPostsReduced } from "../lib/client";
 
-const data = await getAllPostsTmp(3);
+const data = await getAllPostsReduced(3);
 const allPosts = data.publication.posts.edges;
 ---
 

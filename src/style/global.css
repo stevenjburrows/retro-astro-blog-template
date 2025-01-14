@@ -4,20 +4,27 @@
   License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
  */
 :root {
-	--white: #efefef;
-	--transwhite: rgba(239, 239, 239, 0.7);
-	--moretranswhite: rgba(239, 239, 239, 0.1);
-	--black: #252525;
-	--transblack: rgba(37, 37, 37, 0.7);
-	--moretransblack: rgba(37, 37, 37, 0.1);
+	--white: #FFFCC7;
+	--transwhite: rgba(255, 252, 199, 0.7);
+	--moretranswhite: rgba(255, 252, 199, 0.1);
+	--black: #01204E;
+	--transblack: rgba(1, 32, 78, 0.7);
+	--moretransblack: rgba(1, 32, 78, 0.1);
 	--gray: #6b6b6b;
 	--highlight: #e5ffc3;
-	--red: #e4002b;
-	--green: #24d05a;
-	--pink: #eb4888;
-	--blue: #10a2f5;
-	--yellow: #e9bc3f;
+	--red: #F85525;
+	--green: #2BAF90;
+	--pink: #F67422;
+	--blue: #028391;
+	--yellow: #F1A512;
 }
+
+.press-start-2p-regular {
+	font-family: "Press Start 2P", serif;
+	font-weight: 400;
+	font-style: normal;
+  }
+  
 
 ::selection {
 	background-color: var(--highlight);
@@ -37,7 +44,7 @@ html,
 body,
 button,
 code {
-	font-family: "iA Writer Mono", monospace;
+	font-family: "Press Start 2P", serif;
 }
 h1,
 strong,
@@ -231,7 +238,7 @@ h3 {
 }
 
 .header-frame {
-	max-width: 350px;
+	max-width: 450px;
 }
 
 article :not(.article-title) {

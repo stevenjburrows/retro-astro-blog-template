@@ -7,12 +7,10 @@ import ColorScript from "../components/ColorScript.astro";
 import Tags from "../components/Tags.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 import { Content as About } from "./about.md";
-
-// TODO get tags
 ---
 
 <!doctype html>
-<html lang="en-us">
+<html lang="en-gb">
   <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   <body>
     <Header title={SITE_TITLE} />
@@ -32,7 +30,7 @@ import { Content as About } from "./about.md";
       </p>
       <br />
 
-      <!-- <Tags tags={tags} all /> -->
+      <Tags all />
     </main>
     <Footer />
     <ColorScript />

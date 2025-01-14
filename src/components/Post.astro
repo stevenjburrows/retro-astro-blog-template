@@ -6,7 +6,7 @@ const { slug, title, tags, description, date, readTime } = Astro.props;
   <a href={`/post/${slug}/`} class="title">{title}</a>
   <time datetime={date}>
     {
-      new Date(date).toLocaleDateString("en-uk", {
+      new Date(date).toLocaleDateString("en-gb", {
         year: "numeric",
         month: "short",
         day: "numeric",

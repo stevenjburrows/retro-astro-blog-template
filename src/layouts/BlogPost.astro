@@ -5,20 +5,18 @@ import Footer from "../components/Footer.astro";
 import ColorScript from "../components/ColorScript.astro";
 import Tags from "../components/Tags.astro";
 
-// TODO get list of all tags
-
 let {
   content: { title, description, tags, publishedAt, updated, coverImage },
 } = Astro.props;
 
-const added = new Date(publishedAt).toLocaleDateString("en-uk", {
+const added = new Date(publishedAt).toLocaleDateString("en-gb", {
   year: "numeric",
   month: "short",
   day: "numeric",
 });
 
 if (updated) {
-  updated = new Date(updated).toLocaleDateString("en-uk", {
+  updated = new Date(updated).toLocaleDateString("en-gb", {
     year: "numeric",
     month: "short",
     day: "numeric",
@@ -26,7 +24,7 @@ if (updated) {
 }
 ---
 
-<html lang="en-us">
+<html lang="en-gb">
   <BaseHead title={title} description={description} />
 
   <body>
@@ -55,7 +53,7 @@ if (updated) {
         </div>
       </article>
     </main>
-    <!-- <Tags tags={allTags} all /> -->
+    <Tags all />
     <Footer />
     <ColorScript />
   </body>

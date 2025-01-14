@@ -1,18 +1,23 @@
 ---
-const { tags, all } = Astro.props;
+import { getLatestTags } from "../lib/client";
+
+const tags = await getLatestTags();
+const { all } = Astro.props;
 ---
 
 {all && <h3 class="tag-title">View posts by tag</h3>}
 <div class=`${all && "tags"}`>
   {
     tags &&
-      tags.map((tag) => (
-        <>
-          <a class="tag" href={`/tag/${tag.slug}`}>
-            #{tag.name}
-          </a>
-          {` `}
-        </>
-      ))
+      tags.publication.posts.edges.map((edge) =>
+        edge.node.tags.map((tag) => (
+          <>
+            <a class="tag" href={`/tag/${tag.slug}`}>
+              #{tag.name}
+            </a>
+            {` `}
+          </>
+        ))
+      )
   }
 </div>
