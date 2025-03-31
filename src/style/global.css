@@ -171,6 +171,7 @@ ul.tags-list {
 	margin-right: 20px;
 	color: var(--black);
 	font-size: 0.8rem;
+	line-height: 2em;
 }
 .tag:hover {
 	cursor: pointer;

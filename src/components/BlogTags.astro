@@ -1,0 +1,13 @@
+---
+let { tags } = Astro.props;
+---
+
+<div class=`${tags && "tags"}`>
+  {
+    tags?.map((tag) => (
+      <a class="tag" href={`/tag/${tag.slug}`}>
+        #{tag.name}
+      </a>
+    ))
+  }
+</div>

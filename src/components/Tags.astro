@@ -11,12 +11,9 @@ const { all } = Astro.props;
     tags &&
       tags.publication.posts.edges.map((edge) =>
         edge.node.tags.map((tag) => (
-          <>
-            <a class="tag" href={`/tag/${tag.slug}`}>
-              #{tag.name}
-            </a>
-            {` `}
-          </>
+          <a class="tag" href={`/tag/${tag.slug}`}>
+            #{tag.name}
+          </a>
         ))
       )
   }
